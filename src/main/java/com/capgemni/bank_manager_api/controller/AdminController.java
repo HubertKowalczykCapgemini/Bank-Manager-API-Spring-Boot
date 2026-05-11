@@ -24,28 +24,32 @@ public class AdminController {
         this.userService = userService;
     }
 
-    @Operation
+    @Operation(summary = "retrieve all users for admin",
+        description = "gives every user of bank managment system")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/users")
     public List<UserResponse> getAllUsers(){
         return userService.getAllUsers();
     }
 
-    @Operation
+    @Operation(summary = "retrieve user by his id for admin",
+        description = "gives a admin information about user with provided id")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/users/{id}")
     public UserResponse getUserById(@Valid @PathVariable Long id){
         return userService.getUserById(id);
     }
 
-    @Operation
+    @Operation(summary = "delete user with given id for admin",
+        description = "delete user with given id")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/users/{id}")
     public void deleteUserById(@Valid @PathVariable Long id){
         userService.deleteUserById(id);
     }
 
-    @Operation
+    @Operation(summary = "list all transactions",
+        description = "show all transactions inside system")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/transactions")
     public List<TransactionResponse> getAllTransactions(){

@@ -24,21 +24,24 @@ public class TransactionController {
         this.transactionService = transactionService;
     }
 
-    @Operation
+    @Operation(summary = "DEPOSIT",
+        description = "with that endpoint you can deposit money into your account")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/deposit")
     public TransactionResponse createDeposit(@Valid @RequestBody TransactionRequest transactionRequest) throws BadRequestException {
         return transactionService.createTransaction(transactionRequest, OperationType.DEPOSIT);
     }
 
-    @Operation
+    @Operation(summary = "WITHDRAWAL",
+        description = "with that endpoint you can withdrawal money from your account")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/withdrawal")
     public TransactionResponse createWithdrawal(@Valid @RequestBody TransactionRequest transactionRequest) throws BadRequestException {
         return transactionService.createTransaction(transactionRequest,OperationType.WITHDRAWAL);
     }
 
-    @Operation
+    @Operation(summary = "show transaction history for logged user",
+        description = "show every logged user transaction")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
     public List<UserTransactionResponse> getUserTransactions(){

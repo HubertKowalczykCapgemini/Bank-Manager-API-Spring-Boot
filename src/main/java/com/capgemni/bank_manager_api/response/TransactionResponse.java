@@ -1,11 +1,8 @@
 package com.capgemni.bank_manager_api.response;
 
-import com.capgemni.bank_manager_api.entity.User;
+
 import com.capgemni.bank_manager_api.util.OperationType;
-import jakarta.validation.constraints.Digits;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
+
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
